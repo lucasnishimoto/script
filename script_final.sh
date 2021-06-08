@@ -24,7 +24,11 @@ echo " Verificando se ja tem o java instalado"
         if ! [ $versao -eq '11' ];
     then
         echo "versao diferente da 11"
+	sudo apt install openjdk-11-jdk
+        sudo add-apt-repository ppa:webupd8team/java
+        sudo apt-get update
 	sudo update-alternatives --config java
+	clear
 else
         echo " versao igual a 11"
     fi
