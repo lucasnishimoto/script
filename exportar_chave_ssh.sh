@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Será uma maquina ? [ S / N ]"
+echo "Será somente em uma maquina ? [ S / N ]"
 read RESPONSE
 if [[ $RESPONSE != 'S' && $RESPONSE != 's' ]]; then
     echo "Por favor digitar user que será usado no ssh: Ex: root"
