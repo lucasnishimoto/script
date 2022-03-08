@@ -1,13 +1,26 @@
 #!/bin/bash
-echo "Inicando docker "
-sleep 1
-	sudo systemctl start docker 
-echo " Verificando os container ja instalados"
-sleep 1
-	docker ps -a 
-echo "Inicando docker Getmobi"
-	sudo docker start 2341ec68cfee  
-sleep 2
-	echo""
-	echo "Processo finalizado :)"
+echo "Verificando se tem o docker..."
+docker version 
+if [ $? -eq 0 ]
+	then 
+		echo "Voce já possui o docker"
+		exit
+else
+		echo "Você não possui o docker, deseja instalar ? [ S / N]"
+		read RESPONSE
+			if [[ $RESPONSE != 'N' && $RESPONSE != 'n' ]]; then
+				then
+					echo "Instalando o docker..."
+					curl -sSL get.docker.com | bash 
+			else 
+					echo "Ok, bye !"
+					exit
+		fi 
+fi
 
+########################################
+#                                      #
+#  copyright © 2022 by Lucas Nishimoto #  
+#  All rights reserved.                #  
+#                                      #
+######################################## 
